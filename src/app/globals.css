@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+/*  make custom colors primary and secondary to use with text-primary bg-primary etc */
+@theme {
+  --color-primary: #B88E2F;
+  --color-secondary: #0066ff;
+}
