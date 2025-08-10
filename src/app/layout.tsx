@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar/Navbar";
 
-// Load Inter font from Google Fonts with CSS variable
-const inter = Inter({
-  variable: "--font-inter",
+// Poppins for main content
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Montserrat for logo only
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["700"],
   display: "swap",
 });
 
@@ -13,26 +23,19 @@ export const metadata: Metadata = {
   title: "Furniro | Modern Furniture for Elegant Homes",
   description:
     "Furniro offers a curated selection of modern and stylish furniture with high-quality designs to transform your home into a more comfortable and beautiful space.",
-  keywords: [
-    "Furniro",
-    "Furniture",
-    "Home Decor",
-    "Interior Design",
-    "Modern Furniture",
-    "Chairs",
-    "Tables",
-    "Living Room",
-    "Luxury Furniture",
-  ],
 };
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+    <html lang="en" className={`${poppins.variable} ${montserrat.variable}`}>
+      <body className="font-[var(--font-poppins)] antialiased">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
