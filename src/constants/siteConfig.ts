@@ -15,10 +15,10 @@ export const links = [
 // Icons used in the navbar for user actions.
 // Each item includes an id, the icon component, the href route, and a descriptive name.
 export const navbarIcons = [
-  { id: 1, icon: UserIcon, href: "/account", name: "Account" },
-  { id: 2, icon: SearchIcon, href: "/search", name: "Search" },
-  { id: 3, icon: HeartIcon, href: "/wishlist", name: "Wishlist" },
-  { id: 4, icon: CartIcon, href: "/cart", name: "Cart" },
+  { id: 1, icon: UserIcon, href: "/about", name: "Account" },
+  { id: 2, icon: SearchIcon, href: "/about", name: "Search" },
+  { id: 3, icon: HeartIcon, href: "/about", name: "Wishlist" },
+  { id: 4, icon: CartIcon, href: "/about", name: "Cart" },
 ] as const;
 
 // cardsData: Array of card objects representing categories to browse.

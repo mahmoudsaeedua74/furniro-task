@@ -1,17 +1,26 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
-
 const columnLinks = [
   {
     id: 1,
     title: "Links",
-    links: ["Home", "Shop", "About", "Contact"],
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Shop", href: "/shop" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+    ],
   },
   {
     id: 2,
     title: "Help",
-    links: ["Payment Options", "Returns", "Privacy Policies"],
+    links: [
+      { label: "Payment Options", href: "/about" },
+      { label: "Returns", href: "/about" },
+      { label: "Privacy Policies", href: "/about" },
+    ],
   },
 ];
 
@@ -33,9 +42,14 @@ export default function Footer() {
                 {title}
               </h3>
               <ul className="flex flex-col gap-3 sm:gap-[46px] text-black text-sm sm:text-base">
-                {links.map((link, idx) => (
+                {links.map(({ label, href }, idx) => (
                   <li key={idx} className="cursor-pointer hover:text-[#B88E2F]">
-                    {link}
+                    <Link
+                      href={href}
+                      className="lowercase" // لو عايز تخلي الحروف سمول
+                    >
+                      {label}
+                    </Link>
                   </li>
                 ))}
               </ul>

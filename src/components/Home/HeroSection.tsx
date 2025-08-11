@@ -25,6 +25,7 @@ const HeroSection = () => {
           fill
           style={{ objectFit: "cover", objectPosition: "center" }}
           priority={true}
+          fetchPriority="high"
         />
       </motion.div>
 
