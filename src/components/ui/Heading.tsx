@@ -1,4 +1,14 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+
+type HeadingProps = {
+  title: string;
+  subTitle?: string;
+  isLarge?: boolean;
+  reverse?: boolean;
+};
 /**
  * Heading component to display a section title with optional subtitle.
  * Supports two title sizes:
@@ -6,13 +16,6 @@ import React from "react";
  * - 40px (when isLarge is true)
  * Subtitle is optional.
  */
-type HeadingProps = {
-  title: string;
-  subTitle?: string;
-  isLarge?: boolean;
-  reverse?: boolean; // لو true يعكس الترتيب
-};
-
 export default function Heading({
   title,
   subTitle,
@@ -20,7 +23,13 @@ export default function Heading({
   reverse = false,
 }: HeadingProps) {
   return (
-    <div className="mx-auto flex flex-col items-center justify-center text-center">
+    <motion.div
+      className="mx-auto flex flex-col items-center justify-center text-center"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       {reverse ? (
         <>
           {subTitle && (
@@ -56,6 +65,6 @@ export default function Heading({
           )}
         </>
       )}
-    </div>
+    </motion.div>
   );
 }
