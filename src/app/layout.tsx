@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${poppins.className} ${montserrat.variable}`}>
       <body className="font-[var(--font-poppins)] antialiased">
         <Navbar />
         {children}
