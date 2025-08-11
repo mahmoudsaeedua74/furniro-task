@@ -5,6 +5,7 @@ import Heading from "../ui/Heading";
 import ProductCard from "../ui/ProductsCard";
 import { Button } from "../ui/button";
 import { productsData } from "@/constants/siteConfig";
+import Link from "next/link";
 
 export default function ProductsSection() {
   return (
@@ -31,9 +32,11 @@ export default function ProductsSection() {
         viewport={{ amount: 0.2, once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Button variant={"showMore"} size={"showMore"}>
-          Show More
-        </Button>
+        <Link href={"shop"}>
+          <Button variant={"showMore"} size={"showMore"}>
+            Show More
+          </Button>
+        </Link>
       </motion.div>
     </section>
   );
