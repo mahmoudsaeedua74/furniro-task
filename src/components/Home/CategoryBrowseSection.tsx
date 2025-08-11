@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import React from "react";
 import Heading from "../ui/Heading";
 import Image from "next/image";
@@ -21,8 +23,19 @@ export default function CategoryBrowseSection() {
       />
       <div className="mt-5 sm:mt-[62.29px] grid grid-cols-3 gap-2 sm:gap-5">
         {cardsData.map(({ id, src, alt, label }) => (
-          <div key={id} className="flex flex-col items-center rounded-[10px]">
-            <div className="relative w-full aspect-[381/480] rounded-[10px] overflow-hidden">
+          <motion.div
+            key={id}
+            className="flex flex-col items-center rounded-[10px]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <motion.div
+              className="relative w-full aspect-[381/480] rounded-[10px] overflow-hidden"
+              whileHover={{ scale: 1.05 }} // تكبير الصورة شوية على الهوفير
+              transition={{ type: "tween", duration: 0.3 }}
+            >
               <Image
                 src={src}
                 alt={alt}
@@ -31,11 +44,11 @@ export default function CategoryBrowseSection() {
                 className="object-cover rounded-[10px]"
                 priority
               />
-            </div>
+            </motion.div>
             <p className="mt-[15px] sm:mt-[30px] font-poppins font-semibold text-[16px] sm:text-[24px] text-center text-[#333333]">
               {label}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
