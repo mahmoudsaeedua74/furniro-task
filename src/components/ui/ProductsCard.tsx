@@ -64,7 +64,7 @@ export default function ProductCard({
       className={
         viewMode === "list"
           ? "w-full bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col sm:flex-row"
-          : "relative w-[285px] h-[446px] bg-[#F4F5F7] cursor-pointer group"
+          : "relative w-[285px] sm:h-[446px] bg-[#F4F5F7] cursor-pointer group"
       }
     >
       {/* Image Section */}
@@ -109,7 +109,7 @@ export default function ProductCard({
         className={
           viewMode === "list"
             ? "flex-1 p-6 flex flex-col justify-between"
-            : "w-[285px] h-[145px] px-5 pt-4 flex flex-col gap-2"
+            : "w-[285px] sm:h-[145px] px-5 pb-2 sm:pb-0 pt-4 flex flex-col gap-2"
         }
       >
         <div>
@@ -187,16 +187,17 @@ export default function ProductCard({
             </button>
           </div>
         ) : (
-          <div className="absolute inset-0 bg-[#3A3A3A]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center gap-4 text-white px-4">
+          // Mobile: Always visible buttons under content
+          <div className="sm:hidden mt-4 space-y-3">
             <Button
               variant="addToCart"
               size="addToCart"
               onClick={handleAddToCart}
+              className="w-full"
             >
               Add to Cart
             </Button>
-
-            <div className="flex items-center gap-5 font-poppins font-semibold">
+            <div className="flex items-center gap-5 font-poppins font-semibold justify-center">
               <button
                 className="flex items-center gap-2 cursor-pointer hover:text-primary transition"
                 onClick={handleShare}
@@ -222,6 +223,43 @@ export default function ProductCard({
           </div>
         )}
       </div>
+
+      {/* Desktop: Hover overlay covering entire card - only for grid view */}
+      {viewMode === "grid" && (
+        <div className="hidden sm:flex absolute inset-0 bg-[#3A3A3A]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col justify-center items-center gap-4 text-white px-4">
+          <Button
+            variant="addToCart"
+            size="addToCart"
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </Button>
+
+          <div className="flex items-center gap-5 font-poppins font-semibold">
+            <button
+              className="flex items-center gap-2 cursor-pointer hover:text-primary transition"
+              onClick={handleShare}
+            >
+              <ShareIcon className="size-4" />
+              Share
+            </button>
+            <button
+              className="flex items-center gap-2 cursor-pointer hover:text-primary transition"
+              onClick={handleCompare}
+            >
+              <CompareIcon className="size-4" />
+              Compare
+            </button>
+            <button
+              className="flex items-center gap-2 cursor-pointer hover:text-primary transition"
+              onClick={handleLike}
+            >
+              <HeartIcon className="size-4" />
+              Like
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
