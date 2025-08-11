@@ -11,16 +11,17 @@ const NavLinks = ({ isMobile }: { isMobile: boolean }) => {
         } items-center `}
       >
         {links.map((link) => (
-          <a
+          <Link
             key={link.id}
+            href={link.hash}
             className={`cursor-pointer space-x-6 ${
               isMobile
-                ? "hover:text-primary text-white  hover:bg-white rounded-xl px-5 w-full py-4  hover:text-black-text  transition-al;l duration-300"
-                : "hover:text-primary relative font-medium  transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:right-0 after:h-[2px]  after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:after:right-auto hover:after:left-0"
+                ? "hover:text-primary text-white hover:bg-white rounded-xl px-5 w-full py-4 hover:text-black-text transition-all duration-300"
+                : "hover:text-primary relative font-medium transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:after:right-auto hover:after:left-0"
             }`}
           >
             {link.name}
-          </a>
+          </Link>
         ))}
       </div>
       <div
