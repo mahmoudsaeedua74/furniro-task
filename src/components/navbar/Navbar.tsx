@@ -15,6 +15,7 @@ import favicon from "../../app/favicon.ico";
 import CloseCircleIcon from "../icons/CloseCircleIcon";
 import MenuIcon from "../icons/MenuIcon";
 import TooltipComponent from "../ui/Tooltip";
+import { navbarIcons } from "@/constants/siteConfig";
 export default function Navbar() {
   // isOpen to check if navbar is open or close
   const [isOpen, setOpen] = useState(false);
@@ -34,9 +35,10 @@ export default function Navbar() {
     <>
       <nav className="bg-white sm:block z-50 pt-[20px] pb-[20px] sm:pt-[29px] sm:pb-[30px] pl-[20px] sm:pl-[54px] pr-[22px] sm:pr-[100px]">
         <div className="flex justify-between items-center">
+          {/* اللوغو على اليسار */}
           <Link
             href={"/"}
-            className="flex items-center gap-[5px] h-[41px]  sm:max-w-[185px] max-w-[150px] "
+            className="flex items-center gap-[5px] h-[41px] sm:max-w-[185px] max-w-[150px] flex-shrink-0"
           >
             <Image
               src={favicon}
@@ -50,17 +52,31 @@ export default function Navbar() {
               Furniro
             </span>
           </Link>
-          <NavLinks isMobile={false} />
-          <div className="flex order-3 gap-2 items-center  justify-center">
+
+          <div className="flex-grow flex justify-center">
+            <NavLinks isMobile={false} />
+          </div>
+
+          <div className="flex-shrink-0 flex items-center gap-4 sm:gap-[45px] justify-center">
+            {navbarIcons.map(({ id, icon: Icon, href, name }) => (
+              <Link key={id} href={href} className="hover:text-primary">
+                <TooltipComponent title={name}>
+                  <Icon className="size-[24px] sm:size-[28px]" />
+                </TooltipComponent>
+              </Link>
+            ))}
+          </div>
+
+          <div className="lg:hidden flex items-center ml-4">
             <TooltipComponent title={"Open"}>
               <motion.button
                 onClick={() => setOpen(!isOpen)}
-                className="size-8 sm:size-10 cursor-pointer rounded-full lg:hidden flex items-center justify-center"
+                className="size-8 sm:size-10 cursor-pointer rounded-full flex items-center justify-center"
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <MenuIcon className="text-black " />
-              </motion.button>{" "}
+                <MenuIcon className="text-black" />
+              </motion.button>
             </TooltipComponent>
           </div>
         </div>
