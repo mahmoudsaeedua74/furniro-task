@@ -1,36 +1,206 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Furniro - Modern Furniture E-commerce Website
 
-## Getting Started
+A responsive and modern e-commerce website built with Next.js 15 and React 19, implementing a furniture store design from Figma with elegant animations and user interactions.
 
-First, run the development server:
+## 🚀 Live Demo
 
+https://furniro-task.vercel.app/
+
+##  Task Overview
+
+This project was developed as part of a Frontend Developer assessment for **Guitara Group**. The task involved:
+
+- Implementing the Home page from the provided Figma design
+- Creating an additional Shop page with full functionality
+- Using ReactJS and NextJS as the core technologies
+- Maintaining clean, organized, and commented code
+
+**Figma Design Reference**: [eCommerce Website Design](https://figma.com/design/yFmZNMAbGKEWwqafmuPBFz/eCommerce-Website-%7C-Web-Page-Design-%7C-UI-KIT-%7C-Interior-Landing-Page--Community-?node-id=117-336&t=ju1KgMJ4sZNIA4eD-1)
+
+##  Features
+
+### Home Page
+- **Hero Section**: Eye-catching banner with animated content and call-to-action
+- **Category Browse**: Interactive furniture category showcase with hover effects
+- **Products Section**: Featured products grid with smooth animations
+- **Room Inspiration**: Carousel showcasing beautiful room setups
+- **Furniture Gallery**: Dynamic grid layout displaying furniture collections
+- **Responsive Design**: Optimized for all device sizes
+
+### Shop Page
+- **Product Grid/List View**: Toggle between grid and list view modes
+- **Product Cards**: Interactive cards with hover effects and action buttons
+- **Filter Bar**: Navigation bar with view mode controls and product count
+- **Pagination**: Static pagination component (ready for dynamic implementation)
+- **Features Section**: Highlighting store benefits and services
+
+### Global Features
+- **Responsive Navigation**: Mobile-friendly navbar with proper navigation
+- **Toast Notifications**: User feedback for actions (add to cart, like, share, etc.)
+- **Smooth Animations**: Framer Motion powered animations throughout the site
+- **Performance Optimized**: Next.js 15 with Turbopack for fast development and builds
+- **SEO Friendly**: Proper meta tags and semantic HTML structure
+
+## Tech Stack
+
+### Core Technologies
+- **Next.js 15.4.6** - React framework with App Router
+- **React 19.1.0** - Latest React with concurrent features
+- **TypeScript 5** - Type-safe development
+- **Tailwind CSS 4** - Utility-first CSS framework
+
+### Libraries & Dependencies
+- **Framer Motion 12.23.12** - Animation library for smooth interactions
+- **React Hot Toast 2.5.2** - Toast notifications for user feedback
+- **Radix UI** - Accessible UI primitives for tooltips and slots
+- **Class Variance Authority** - Component variant management
+- **Clsx & Tailwind Merge** - Conditional class names and optimization
+- **Axios 1.11.0** - HTTP client for future API integrations
+
+### Development Tools
+- **ESLint 9** - Code linting and quality assurance
+- **Turbopack** - Ultra-fast bundler for development
+
+##  Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── globals.css        # Global styles and Tailwind imports
+│   ├── layout.tsx         # Root layout with fonts and providers
+│   ├── page.tsx           # Home page entry point
+│   ├── HomeClient.tsx     # Client-side home page components
+│   └── shop/              # Shop page directory
+│       └── page.tsx       # Shop page implementation
+├── components/            # Reusable React components
+│   ├── Home/             # Home page specific components
+│   │   ├── HeroSection.tsx
+│   │   ├── CategoryBrowseSection.tsx
+│   │   ├── ProductsSection.tsx
+│   │   ├── ExploreSection.tsx
+│   │   ├── FurnitureGrid.tsx
+│   │   └── RoomCarousel.tsx
+│   ├── Shop/             # Shop page specific components
+│   │   ├── ProductsSection.tsx
+│   │   ├── FilterBar.tsx
+│   │   └── FeaturesSection.tsx
+│   ├── ui/               # Reusable UI components
+│   │   ├── button.tsx    # Button component with variants
+│   │   ├── ProductsCard.tsx # Product card with grid/list modes
+│   │   ├── Badge.tsx     # Product badges
+│   │   ├── Heading.tsx   # Section headings
+│   │   ├── BreadcrumbHeader.tsx # Page headers
+│   │   ├── PaginationStatic.tsx # Pagination component
+│   │   └── ComingSoon.tsx # Coming soon placeholder
+│   ├── navbar/           # Navigation components
+│   │   └── Navbar.tsx
+│   ├── footer/           # Footer components
+│   │   └── Footer.tsx
+│   └── icons/            # Custom SVG icon components
+├── constants/            # Static data and configuration
+│   └── siteConfig.ts     # Products data and site constants
+└── utils/                # Utility functions and types
+    ├── interface.ts      # TypeScript interfaces
+    └── animation.ts      # Framer Motion animation variants
+```
+
+##  Design Implementation
+
+### Typography
+- **Poppins**: Primary font for content with weights 400, 500, 600, 700
+- **Montserrat**: Logo font with weight 700
+
+### Color Scheme
+- Primary: `#B88E2F` (Golden accent)
+- Background: `#F4F5F7` (Light gray)
+- Text: `#333333` (Dark gray)
+- Secondary: `#FCF8F3` (Warm background)
+
+### Component Features
+- **Product Cards**: Support both grid and list view modes
+- **Animations**: Stagger animations for product grids and smooth transitions
+- **Hover Effects**: Interactive elements with proper feedback
+- **Responsive Images**: Next.js Image optimization with proper sizing
+
+##  Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn package manager
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone [your-repository-url]
+cd furniro-task
+```
+
+2. **Install dependencies**
+```bash
+npm install
+# or
+yarn install
+```
+
+3. **Run the development server**
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **Open your browser**
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Build the application
+npm run build
 
-## Learn More
+# Start production server
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+##  Build Performance
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+Route (app)                                 Size  First Load JS
+┌ ○ /                                    3.21 kB         145 kB
+├ ○ /_not-found                            123 B        99.9 kB
+├ ○ /about                               2.27 kB         102 kB
+├ ○ /contact                             2.27 kB         102 kB
+└ ○ /shop                                12.1 kB         159 kB
++ First Load JS shared by all            99.8 kB
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💡 Key Implementation Decisions
 
-## Deploy on Vercel
+### Performance Optimizations
+- **Dynamic Imports**: Non-critical components are lazy-loaded using `next/dynamic`
+- **Image Optimization**: Next.js Image component with proper sizing and priority loading
+- **SSR Strategy**: Strategic use of client-side rendering where needed
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Code Organization
+- **Component Structure**: Modular components with clear separation of concerns
+- **Type Safety**: Comprehensive TypeScript interfaces for all data structures
+- **Reusable UI**: Consistent design system with variant-based components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### User Experience
+- **Smooth Animations**: Framer Motion for professional interactions
+- **Responsive Design**: Mobile-first approach with breakpoint optimization
+- **Loading States**: Toast notifications for user action feedback
+- **View Modes**: Flexible product display options (grid/list)
+
+##  Future Enhancements
+
+- [ ] Dynamic product filtering and sorting
+- [ ] Shopping cart functionality
+- [ ] User authentication system
+- [ ] Product detail pages
+- [ ] Search functionality
+- [ ] Wishlist management
+- [ ] API integration for dynamic content
+- [ ] Payment gateway integration
+
