@@ -20,3 +20,25 @@ export const navbarIcons = [
   { id: 3, icon: HeartIcon, href: "/wishlist", name: "Wishlist" },
   { id: 4, icon: CartIcon, href: "/cart", name: "Cart" },
 ] as const;
+
+// cardsData: Array of card objects representing categories to browse.
+export const cardsData = [
+  {
+    id: 1,
+    src: "/assets/living.webp",
+    alt: "Room 1",
+    label: "Living Room",
+  },
+  {
+    id: 2,
+    src: "/assets/bedroom.webp",
+    alt: "Room 2",
+    label: "Bedroom",
+  },
+  {
+    id: 3,
+    src: "/assets/dining.webp",
+    alt: "Room 3",
+    label: "Dining Room",
+  },
+];
